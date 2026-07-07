@@ -12,14 +12,14 @@ use Illuminate\Http\Request;
 class MailSettingsController extends Controller
 {
 
-    //-------------- Get mail_settings ---------------\\
+
 
       public function get_config_mail(Request $request)
       {
           $this->authorizeForUser($request->user('api'), 'mail_settings', Setting::class);
-  
+
           $server = Server::where('deleted_at', '=', null)->first();
-  
+
           if ($server) {
               return response()->json(['server' => $server], 200);
           } else {
@@ -27,7 +27,7 @@ class MailSettingsController extends Controller
           }
       }
 
-    
+
     //-------------- Update mail settings ---------------\\
 
     public function update_config_mail(Request $request, $id)
@@ -48,6 +48,6 @@ class MailSettingsController extends Controller
 
     }
 
-  
+
 
 }

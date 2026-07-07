@@ -50,7 +50,7 @@ class DashboardController extends Controller
             $array_warehouses_id = UserWarehouse::where('user_id', $user_auth->id)->pluck('warehouse_id')->toArray();
             $warehouses = Warehouse::where('deleted_at', '=', null)->whereIn('id', $array_warehouses_id)->get(['id', 'name']);
         }
-                    
+
         if(empty($request->warehouse_id)){
             $warehouse_id = 0;
         }else{
@@ -109,7 +109,7 @@ class DashboardController extends Controller
                     return $query->whereIn('warehouse_id', $array_warehouses_id);
                 }
             })
-            
+
             ->groupBy(DB::raw("DATE_FORMAT(date,'%Y-%m-%d')"))
             ->orderBy('date', 'asc')
             ->get([
@@ -140,7 +140,6 @@ class DashboardController extends Controller
         $role = Auth::user()->roles()->first();
         $view_records = Role::findOrFail($role->id)->inRole('record_view');
 
-        // Build an array of the dates we want to show, oldest first
         $dates = collect();
         foreach (range(-6, 0) as $i) {
             $date = Carbon::now()->addDays($i)->format('Y-m-d');
@@ -149,7 +148,7 @@ class DashboardController extends Controller
 
         $date_range = \Carbon\Carbon::today()->subDays(6);
 
-        // Get the purchases counts
+
         $purchases = Purchase::where('date', '>=', $date_range)
             ->where('deleted_at', '=', null)
             ->where(function ($query) use ($view_records) {
@@ -186,7 +185,7 @@ class DashboardController extends Controller
 
     }
 
-    //-------------------- Get Top 5 Customers -------------\\
+
 
     public function TopCustomers($warehouse_id, $array_warehouses_id)
     {
@@ -260,7 +259,7 @@ class DashboardController extends Controller
 
         return response()->json($products);
     }
-    
+
 
     //-------------------- General Report dashboard -------------\\
 
@@ -374,7 +373,7 @@ class DashboardController extends Controller
             }
         })
         ->get(DB::raw('SUM(GrandTotal)  As sum'))
-        ->first()->sum; 
+        ->first()->sum;
 
         $data['return_sales'] = number_format($data['return_sales'], 2, '.', ',');
 
