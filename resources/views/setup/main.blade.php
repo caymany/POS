@@ -18,7 +18,7 @@
     <div class="container-progress container">
         <div class="row text-center section-setup">
             <div class="col-12">
-                <h1>Stocky Setup</h1>
+                <h1>Setup - Stocky by Fab</h1>
             </div>
         </div>
         @yield('content')
