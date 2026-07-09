@@ -21573,11 +21573,11 @@ $full-map: (
   color: black;
 }
 
-.orange-600 {
+.orange-700 {
   background-color: #d65b06;
 }
 
-.text-orange-600 {
+.text-orange-700 {
   color: black;
 }
 
@@ -22453,11 +22453,11 @@ $full-map: (
   color: black;
 }
 
-.orange-600 {
+.orange-700 {
   background-color: #d65b06;
 }
 
-.text-orange-600 {
+.text-orange-700 {
   color: black;
 }
 
@@ -27655,7 +27655,8 @@ a.typo_link.text-gray-900:after {
 }
 
 .layout-sidebar-compact.sidenav-open .main-content-wrap {
-  width: calc( 100% - 76px - 220px);
+  width: calc(
+ 100% - 76px - 220px);
 }
 
 .layout-sidebar-compact.sidenav-open .sidebar-left {
@@ -27905,7 +27906,8 @@ a.typo_link.text-gray-900:after {
 .layout-sidebar-compact .sidebar-overlay {
   display: none;
   position: fixed;
-  width: calc( 100% - 76px - 220px);
+  width: calc(
+ 100% - 76px - 220px);
   height: calc(100vh - 80px);
   bottom: 0;
   right: 0;
@@ -28450,7 +28452,8 @@ a.typo_link.text-gray-900:after {
 .layout-sidebar-large .sidebar-overlay {
   display: none;
   position: fixed;
-  width: calc( 100% - 120px - 220px);
+  width: calc(
+ 100% - 120px - 220px);
   height: calc(100vh - 80px);
   bottom: 0;
   right: 0;
