@@ -1,88 +1,112 @@
 <?php
+
 namespace App\utils;
 
-use App\Models\Currency;
 use App\Models\Role;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Auth;
 
 class helpers
 {
-
-    //  Helper Multiple Filter
+    /**
+     * Apply request filters to a query.
+     *
+     * @param mixed $model
+     * @param array $columns
+     * @param array $param
+     * @param \Illuminate\Http\Request $request
+     * @return mixed
+     */
     public function filter($model, $columns, $param, $request)
     {
-        // Loop through the fields checking if they've been input, if they have add
-        //  them to the query.
-        $fields = [];
-        for ($key = 0; $key < count($columns); $key++) {
-            $fields[$key]['param'] = $param[$key];
-            $fields[$key]['value'] = $columns[$key];
+        foreach ($columns as $index => $column) {
+
+            if (!$request->filled($column)) {
+                continue;
+            }
+
+            $operator = $param[$index] ?? '=';
+
+            if (strtolower($operator) === 'like') {
+                $model->where($column, 'LIKE', '%' . $request->$column . '%');
+            } else {
+                $model->where($column, $operator, $request->$column);
+            }
         }
 
-        foreach ($fields as $field) {
-            $model->where(function ($query) use ($request, $field, $model) {
-                return $model->when($request->filled($field['value']),
-                    function ($query) use ($request, $model, $field) {
-                        $field['param'] = 'like' ?
-                        $model->where($field['value'], 'like', "{$request[$field['value']]}")
-                        : $model->where($field['value'], $request[$field['value']]);
-                    });
-            });
-        }
-
-        // Finally return the model
         return $model;
     }
 
-    //  Check If Hass Permission Show All records
+    /**
+     * Restrict records if the user lacks permission.
+     *
+     * @param mixed $model
+     * @return mixed
+     */
     public function Show_Records($model)
     {
-        $Role = Auth::user()->roles()->first();
-        $ShowRecord = Role::findOrFail($Role->id)->inRole('record_view');
+        $user = Auth::user();
 
-        if (!$ShowRecord) {
-            return $model->where('user_id', '=', Auth::user()->id);
+        if (!$user) {
+            return $model;
         }
+
+        $role = $user->roles()->first();
+
+        if (!$role) {
+            return $model->where('user_id', Auth::id());
+        }
+
+        $showRecord = $role->inRole('record_view');
+
+        if (!$showRecord) {
+            return $model->where('user_id', Auth::id());
+        }
+
         return $model;
     }
 
-    // Get Currency
+    /**
+     * Get current settings with currency.
+     *
+     * @return \App\Models\Setting|null
+     */
+    private function settings()
+    {
+        return Setting::with('Currency')
+            ->whereNull('deleted_at')
+            ->first();
+    }
+
+    /**
+     * Get currency symbol.
+     *
+     * @return string
+     */
     public function Get_Currency()
     {
-        $settings = Setting::with('Currency')->where('deleted_at', '=', null)->first();
+        $settings = $this->settings();
 
-        if ($settings && $settings->currency_id) {
-            if (Currency::where('id', $settings->currency_id)
-                ->where('deleted_at', '=', null)
-                ->first()) {
-                $symbol = $settings['Currency']->symbol;
-            } else {
-                $symbol = '';
-            }
-        } else {
-            $symbol = '';
+        if (!$settings || !$settings->Currency) {
+            return '';
         }
-        return $symbol;
+
+        return $settings->Currency->symbol ?? '';
     }
 
-    // Get Currency COde
+    /**
+     * Get currency code.
+     *
+     * @return string
+     */
     public function Get_Currency_Code()
     {
-        $settings = Setting::with('Currency')->where('deleted_at', '=', null)->first();
+        $settings = $this->settings();
 
-        if ($settings && $settings->currency_id) {
-            if (Currency::where('id', $settings->currency_id)
-                ->where('deleted_at', '=', null)
-                ->first()) {
-                $code = $settings['Currency']->code;
-            } else {
-                $code = 'usd';
-            }
-        } else {
-            $code = 'usd';
+        if (!$settings || !$settings->Currency) {
+            return 'USD';
         }
-        return $code;
-    }
 
+        return strtoupper($settings->Currency->code ?? 'USD');
+    }
 }
