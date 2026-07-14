@@ -95,7 +95,7 @@ class helpers
     }
 
     /**
-     * Get currency code.
+
      *
      * @return string
      */
