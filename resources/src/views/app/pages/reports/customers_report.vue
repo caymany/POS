@@ -190,7 +190,7 @@ export default {
     },
 
 
-     //--------------------------- Download_PDF-------------------------------\\
+
     Download_PDF(client , id) {
       // Start the progress bar.
       NProgress.start();
@@ -218,7 +218,7 @@ export default {
         });
     },
 
-    //---- update Params Table
+
     updateParams(newProps) {
       this.serverParams = Object.assign({}, this.serverParams, newProps);
     },
@@ -240,7 +240,7 @@ export default {
       }
     },
 
-    //---- Event on Sort Change
+
     onSortChange(params) {
       this.updateParams({
         sort: {
@@ -251,14 +251,13 @@ export default {
       this.Get_Client_Report(this.serverParams.page);
     },
 
-    //---- Event on Search
 
     onSearch(value) {
       this.search = value.searchTerm;
       this.Get_Client_Report(this.serverParams.page);
     },
 
-    //------------------------------Formetted Numbers -------------------------\\
+
     formatNumber(number, dec) {
       const value = (typeof number === "string"
         ? number
@@ -272,7 +271,7 @@ export default {
       return `${value[0]}.${formated}`;
     },
 
-    //--------------------------- Get Customer Report -------------\\
+
 
     Get_Client_Report(page) {
       // Start the progress bar.
@@ -309,7 +308,7 @@ export default {
     }
   }, //end Methods
 
-  //----------------------------- Created function------------------- \\
+
 
   created: function() {
     this.Get_Client_Report(1);
