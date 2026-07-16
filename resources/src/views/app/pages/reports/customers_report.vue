@@ -22,7 +22,7 @@
         placeholder: $t('Search_this_table'),
         enabled: true,
       }"
-      
+
         :pagination-options="{
         enabled: true,
         mode: 'records',
@@ -73,9 +73,9 @@ export default {
       client: {},
       rows: [{
           total_sales: 'Total',
-         
+
           children: [
-             
+
           ],
       },],
     };
@@ -85,7 +85,7 @@ export default {
     ...mapGetters(["currentUser"]),
     columns() {
       return [
-       
+
         {
           label: this.$t("CustomerName"),
           field: "name",
@@ -156,7 +156,7 @@ export default {
   methods: {
 
     sumCount(rowObj) {
-     
+
     	let sum = 0;
       for (let i = 0; i < rowObj.children.length; i++) {
         sum += rowObj.children[i].total_amount;
@@ -164,7 +164,7 @@ export default {
       return sum;
     },
     sumCount2(rowObj) {
-     
+
     	let sum = 0;
       for (let i = 0; i < rowObj.children.length; i++) {
         sum += rowObj.children[i].total_paid;
@@ -172,7 +172,7 @@ export default {
       return sum;
     },
     sumCount3(rowObj) {
-     
+
     	let sum = 0;
       for (let i = 0; i < rowObj.children.length; i++) {
         sum += rowObj.children[i].due;
@@ -181,7 +181,7 @@ export default {
     },
 
     sumCount4(rowObj) {
-     
+
     	let sum = 0;
       for (let i = 0; i < rowObj.children.length; i++) {
         sum += rowObj.children[i].return_Due;
@@ -189,13 +189,13 @@ export default {
       return sum;
     },
 
-    
+
      //--------------------------- Download_PDF-------------------------------\\
     Download_PDF(client , id) {
       // Start the progress bar.
       NProgress.start();
       NProgress.set(0.1);
-     
+
        axios
         .get("report/client_pdf/" + id, {
           responseType: "blob", // important
@@ -214,8 +214,7 @@ export default {
           setTimeout(() => NProgress.done(), 500);
         })
         .catch(() => {
-          // Complete the animation of the  progress bar.
-          setTimeout(() => NProgress.done(), 500);
+            setTimeout(() => NProgress.done(), 500);
         });
     },
 
@@ -224,7 +223,7 @@ export default {
       this.serverParams = Object.assign({}, this.serverParams, newProps);
     },
 
-    //---- Event Page Change
+
     onPageChange({ currentPage }) {
       if (this.serverParams.page !== currentPage) {
         this.updateParams({ page: currentPage });
@@ -232,7 +231,7 @@ export default {
       }
     },
 
-    //---- Event Per Page Change
+
     onPerPageChange({ currentPerPage }) {
       if (this.limit !== currentPerPage) {
         this.limit = currentPerPage;
@@ -314,7 +313,7 @@ export default {
 
   created: function() {
     this.Get_Client_Report(1);
-    
+
   }
 };
 </script>
