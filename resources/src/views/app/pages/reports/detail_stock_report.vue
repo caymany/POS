@@ -7,9 +7,9 @@
         <b-col lg="12" class="mb-4">
             <h3 class="text-center">{{product.name}}</h3>
         </b-col>
-      <!-- Warehouse Quantity -->
+
           <b-col md="5" v-if="product.type == 'is_single'">
-          
+
             <table class="table table-hover table-sm">
               <thead>
                 <tr>
@@ -25,7 +25,7 @@
               </tbody>
             </table>
           </b-col>
-          <!-- Warehouse Variants Quantity -->
+
           <b-col md="7" v-if="product.is_variant == 'yes'" class="mt-4">
             <table class="table table-hover table-sm">
               <thead>
@@ -48,9 +48,9 @@
       <b-col md="12">
         <b-card class="card mb-30" header-bg-variant="transparent ">
           <b-tabs active-nav-item-class="nav nav-tabs" content-class="mt-3">
-           
 
-            <!-- Sales Table -->
+
+
             <b-tab :title="$t('Sales')">
               <vue-good-table
                 mode="remote"
@@ -97,7 +97,7 @@
                       <span class="ul-btn__text ml-1">{{props.row.Ref}}</span>
                     </router-link>
                   </div>
-                 
+
                   <div v-else-if="props.column.field == 'total'">
                     <span>{{currentUser.currency}} {{props.row.total}}</span>
                   </div>
@@ -106,7 +106,7 @@
               </vue-good-table>
             </b-tab>
 
-             <!-- Quotations Table -->
+
             <b-tab :title="$t('Quotations')">
               <vue-good-table
                 mode="remote"
@@ -145,7 +145,7 @@
                 </vue-excel-xlsx>
               </div>
                 <template slot="table-row" slot-scope="props">
-                  
+
                    <div v-if="props.column.field == 'Ref'">
                     <router-link
                       :to="'/app/quotations/detail/'+props.row.quotation_id"
@@ -162,7 +162,7 @@
               </vue-good-table>
             </b-tab>
 
-            <!-- Purchases Table -->
+
             <b-tab :title="$t('Purchases')">
               <vue-good-table
                 mode="remote"
@@ -256,7 +256,7 @@
                 </vue-excel-xlsx>
               </div>
                 <template slot="table-row" slot-scope="props">
-                  
+
                   <div v-if="props.column.field == 'Ref'">
                     <router-link
                       :to="'/app/sale_return/detail/'+props.row.return_sale_id"
@@ -311,7 +311,7 @@
                 </vue-excel-xlsx>
               </div>
                 <template slot="table-row" slot-scope="props">
-                  
+
                   <div v-if="props.column.field == 'Ref'">
                     <router-link
                       :to="'/app/purchase_return/detail/'+props.row.return_purchase_id"
@@ -354,7 +354,7 @@
                   <i class="i-File-Copy"></i> PDF
                 </b-button>
               </div>
-               
+
               </vue-good-table>
             </b-tab>
 
@@ -388,7 +388,7 @@
               </vue-good-table>
             </b-tab>
 
-             
+
 
           </b-tabs>
         </b-card>
@@ -552,7 +552,7 @@ export default {
           thClass: "text-left",
           sortable: false
         },
-        
+
       ];
     },
     columns_sales_return() {
@@ -741,7 +741,7 @@ export default {
           tdClass: "text-left",
           thClass: "text-left"
         },
-       
+
       ];
     },
     columns_adjustments() {
@@ -771,7 +771,7 @@ export default {
           tdClass: "text-left",
           thClass: "text-left"
         },
-       
+
       ];
     }
   },
@@ -914,7 +914,7 @@ export default {
           this.product = response.data;
         })
         .catch(response => {
-         
+
         });
     },
 
@@ -1055,10 +1055,10 @@ export default {
         .then(response => {
           this.quotations = response.data.quotations;
           this.totalRows_quotations = response.data.totalRows;
-         
+
         })
         .catch(response => {
-         
+
         });
     },
 
@@ -1098,10 +1098,10 @@ export default {
         .then(response => {
           this.transfers = response.data.transfers;
           this.totalRows_transfers = response.data.totalRows;
-         
+
         })
         .catch(response => {
-         
+
         });
     },
 
@@ -1141,10 +1141,10 @@ export default {
         .then(response => {
           this.adjustments = response.data.adjustments;
           this.totalRows_adjustments = response.data.totalRows;
-         
+
         })
         .catch(response => {
-         
+
         });
     },
 
