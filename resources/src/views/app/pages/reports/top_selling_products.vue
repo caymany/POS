@@ -215,6 +215,7 @@ export default {
 
       }
     },
+    //This is just a place holder
 
     Get_top_products(page) {
       // Start the progress bar.
