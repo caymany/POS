@@ -10,7 +10,6 @@
             <b-card>
               <b-row>
 
-                 <!-- date  -->
                 <b-col lg="4" md="4" sm="12" class="mb-3">
                   <validation-provider
                     name="date"
@@ -49,7 +48,6 @@
                   </validation-provider>
                 </b-col>
 
-                <!-- To warehouse -->
                 <b-col lg="4" md="4" sm="12" class="mb-3">
                   <validation-provider name="To Warehouse" :rules="{ required: true}">
                     <b-form-group slot-scope="{ valid, errors }" :label="$t('ToWarehouse') + ' ' + '*'">
@@ -66,14 +64,13 @@
                   </validation-provider>
                 </b-col>
 
-                 <!-- Product -->
                 <b-col md="12" class="mb-5">
                   <h6>{{$t('ProductName')}}</h6>
-                 
+
                   <div id="autocomplete" class="autocomplete">
-                    <input 
+                    <input
                      :placeholder="$t('Scan_Search_Product_by_Code_Name')"
-                       @input='e => search_input = e.target.value' 
+                       @input='e => search_input = e.target.value'
                       @keyup="search(search_input)"
                       @focus="handleFocus"
                       @blur="handleBlur"
@@ -85,7 +82,6 @@
                 </div>
                 </b-col>
 
-                <!-- order products  -->
                 <b-col md="12">
                   <div class="table-responsive">
                     <table class="table table-hover">
@@ -531,7 +527,7 @@ export default {
       this.focused = false
     },
 
-    
+
     //------------- Submit Validation Create Transfer
     Submit_Transfer() {
       this.$refs.Create_transfer.validate().then(success => {
@@ -610,8 +606,8 @@ export default {
             } else {
               this.details[i].quantity =1;
             }
-            
-          
+
+
           this.details[i].Unit_cost = this.detail.Unit_cost;
           this.details[i].tax_percent = this.detail.tax_percent;
           this.details[i].tax_method = this.detail.tax_method;
@@ -675,7 +671,7 @@ export default {
       return dirty || validated ? valid : null;
     },
 
-    
+
     // Search Products
     search(){
 
@@ -713,7 +709,7 @@ export default {
 
     },
 
-       
+
 
     //-------------------- get Result Value Search Product
 
