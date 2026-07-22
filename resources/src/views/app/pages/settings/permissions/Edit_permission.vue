@@ -100,7 +100,7 @@
                       <b-card-body>
                         <b-card-text>
                           <b-row>
-                            <!--Users View -->
+
                             <b-col md="6">
                               <label class="checkbox checkbox-outline-primary">
                                 <input
@@ -113,7 +113,7 @@
                                 <span class="checkmark"></span>
                               </label>
                             </b-col>
-                            <!--Users ADD -->
+
                             <b-col md="6">
                               <label class="checkbox checkbox-outline-primary">
                                 <input
@@ -126,7 +126,7 @@
                                 <span class="checkmark"></span>
                               </label>
                             </b-col>
-                            <!--Users Edit -->
+
                             <b-col md="6">
                               <label class="checkbox checkbox-outline-primary">
                                 <input
@@ -139,7 +139,7 @@
                                 <span class="checkmark"></span>
                               </label>
                             </b-col>
-                            <!--Users Delete -->
+
                             <b-col md="6">
                               <label class="checkbox checkbox-outline-primary">
                                 <input
@@ -152,7 +152,7 @@
                                 <span class="checkmark"></span>
                               </label>
                             </b-col>
-                            <!--Users record view -->
+
                             <b-col md="12">
                               <label class="checkbox checkbox-outline-primary">
                                 <input
@@ -172,7 +172,7 @@
                   </b-card>
                 </b-col>
 
-                <!--  Permissions -->
+
                 <b-col md="4">
                   <b-card no-body class="ul-card__border-radius">
                     <b-card-header header-tag="header" class="p-1" role="tab">
@@ -193,7 +193,7 @@
                       <b-card-body>
                         <b-card-text>
                           <b-row>
-                            <!--Permissions View -->
+
                             <b-col md="6">
                               <label class="checkbox checkbox-outline-primary">
                                 <input
@@ -206,7 +206,7 @@
                                 <span class="checkmark"></span>
                               </label>
                             </b-col>
-                            <!--Permissions ADD -->
+
                             <b-col md="6">
                               <label class="checkbox checkbox-outline-primary">
                                 <input
