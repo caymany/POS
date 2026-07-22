@@ -28,7 +28,6 @@
                   </validation-provider>
                 </b-col>
 
-                <!-- Role description -->
                 <b-col md="6">
                   <b-form-group :label="$t('RoleDescription')">
                     <b-form-input
@@ -40,7 +39,7 @@
               </b-row>
 
               <b-row class="mt-4">
-                <!--dashboard -->
+
                 <b-col md="4">
                   <b-card no-body class="ul-card__border-radius">
                     <b-card-header header-tag="header" class="p-1" role="tab">
@@ -61,7 +60,7 @@
                       <b-card-body>
                         <b-card-text>
                           <b-row>
-                            <!--dashboard -->
+
                             <b-col md="6">
                               <label class="checkbox checkbox-outline-primary">
                                 <input
@@ -80,7 +79,7 @@
                     </b-collapse>
                   </b-card>
                 </b-col>
-                <!--Users -->
+
                 <b-col md="4">
                   <b-card no-body class="ul-card__border-radius">
                     <b-card-header header-tag="header" class="p-1" role="tab">
@@ -757,7 +756,7 @@
                                 <span class="checkmark"></span>
                               </label>
                             </b-col>
-                            
+
                           </b-row>
                         </b-card-text>
                       </b-card-body>
@@ -975,7 +974,7 @@
                                 <span class="checkmark"></span>
                               </label>
                             </b-col>
-                            
+
                           </b-row>
                         </b-card-text>
                       </b-card-body>
@@ -1498,7 +1497,7 @@
                                 <span class="checkmark"></span>
                               </label>
                             </b-col>
-                            
+
                           </b-row>
                         </b-card-text>
                       </b-card-body>
@@ -2075,7 +2074,7 @@
                                 <span class="checkmark"></span>
                               </label>
                             </b-col>
-                          
+
                           </b-row>
                         </b-card-text>
                       </b-card-body>
@@ -2188,7 +2187,7 @@
                               </label>
                             </b-col>
 
-                          
+
                             <!--Currency  -->
                             <b-col md="6">
                               <label class="checkbox checkbox-outline-primary">
@@ -2215,7 +2214,7 @@
                                 <span class="checkmark"></span>
                               </label>
                             </b-col>
-                           
+
                             <!--Backup-->
                             <b-col md="6">
                               <label class="checkbox checkbox-outline-primary">
