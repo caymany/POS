@@ -171,7 +171,7 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   metaInfo: {
-    // if no subcomponents specify a metaInfo.title, this title will be used
+
     title: "Profile"
   },
   data() {
@@ -198,7 +198,7 @@ export default {
   },
 
   methods: {
-    //------------- Submit Update Profile
+
     Submit_Profile() {
       this.$refs.Update_Profile.validate().then(success => {
         if (!success) {
@@ -222,12 +222,12 @@ export default {
       });
     },
 
-    //------ Validation State fields
+
     getValidationState({ dirty, validated, valid = null }) {
       return dirty || validated ? valid : null;
     },
 
-    //------------------ Get Profile Info ----------------------\\
+
     Get_Profile_Info() {
       axios
         .get("Get_user_profile")
