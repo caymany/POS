@@ -14,7 +14,7 @@
         <validation-observer ref="Update_Profile">
           <b-form @submit.prevent="Submit_Profile" enctype="multipart/form-data">
             <b-row>
-              <!-- First name -->
+
               <b-col md="6" sm="12">
                 <validation-provider
                   name="Firstname"
@@ -35,7 +35,7 @@
                 </validation-provider>
               </b-col>
 
-              <!-- Last name -->
+
               <b-col md="6" sm="12">
                 <validation-provider
                   name="lastname"
@@ -56,7 +56,7 @@
                 </validation-provider>
               </b-col>
 
-              <!-- Username -->
+
               <b-col md="6" sm="12">
                 <validation-provider
                   name="username"
@@ -77,7 +77,7 @@
                 </validation-provider>
               </b-col>
 
-              <!-- Phone -->
+
               <b-col md="6" sm="12">
                 <validation-provider
                   name="Phone"
@@ -96,7 +96,7 @@
                 </validation-provider>
               </b-col>
 
-              <!-- Email -->
+
               <b-col md="6" sm="12">
                 <validation-provider
                   name="Email"
@@ -115,7 +115,7 @@
                 </validation-provider>
               </b-col>
 
-              <!-- Avatar -->
+
               <b-col md="6" sm="12">
                 <validation-provider name="Avatar" ref="Avatar" rules="mimes:image/*|size:200">
                   <b-form-group slot-scope="{validate, valid, errors }" :label="$t('UserImage')">
