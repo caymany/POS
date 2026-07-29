@@ -5,7 +5,7 @@
 
     <div v-else> 
 
-        <!-- Notification Client -->
+
       <div class="row mt-5">
         <div class="col-md-12">
 
@@ -18,7 +18,7 @@
 
               <b-tabs active-nav-item-class="nav nav-tabs" content-class="mt-3">
 
-                <!-- Sell -->
+
                 <b-tab :title="$t('Sale')">
                   <form @submit.prevent="update_custom_email('sale')">
                     <div class="row">
@@ -54,7 +54,7 @@
 
                 </b-tab>
 
-                <!-- Quotation -->
+
                 <b-tab :title="$t('Quote')">
 
                   <form @submit.prevent="update_custom_email('quotation')">
