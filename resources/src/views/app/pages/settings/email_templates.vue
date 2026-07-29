@@ -3,7 +3,7 @@
     <breadcumb :page="$t('email_templates')" :folder="$t('Settings')"/>
     <div v-if="isLoading" class="loading_page spinner spinner-primary mr-3"></div>
 
-    <div v-else> 
+    <div v-else>
 
 
       <div class="row mt-5">
@@ -92,7 +92,7 @@
 
                 </b-tab>
 
-                <!-- Payment Received -->
+
                 <b-tab :title="$t('PaiementsReceived')">
 
                   <form @submit.prevent="update_custom_email('payment_received')">
@@ -138,7 +138,7 @@
       </div>
 
 
-      <!-- {{-- Notification Supplier --}} -->
+
       <div class="row mt-5">
         <div class="col-md-12">
 
@@ -188,9 +188,9 @@
 
                 </b-tab>
 
-                <!-- Payment Sent -->
+
                 <b-tab :title="$t('PaiementsSent')">
-                  
+
                   <form @submit.prevent="update_custom_email('payment_sent')">
                     <div class="row">
                       <div class=" col-md-12">
@@ -250,7 +250,7 @@ export default {
   metaInfo: {
     title: "Email Templates"
   },
- 
+
   data() {
     return {
       isLoading: true,
@@ -283,14 +283,14 @@ export default {
         [{ list: "ordered" }, { list: "bullet" }],
       ],
 
-     
+
     };
   },
 
   methods: {
     ...mapActions(["refreshUserPermissions"]),
 
-    
+
       //------ Toast
     makeToast(variant, msg, title) {
       this.$root.$bvToast.toast(msg, {
@@ -322,7 +322,7 @@ export default {
                 this.custom_email_body = this.payment_sent.body;
                 this.custom_email_subject =  this.payment_sent.subject;
               }
-              
+
               axios.put("/update_custom_email", {
                 custom_email_body: this.custom_email_body,
                 custom_email_subject: this.custom_email_subject,
@@ -349,9 +349,9 @@ export default {
               });
           },
 
-   
 
-     //---------------------------------- get_emails_template ----------------\\
+
+
     get_emails_template() {
       axios
         .get("get_emails_template")
@@ -369,10 +369,10 @@ export default {
             this.isLoading = false;
           }, 500);
         });
-    },   
+    },
 
 
-   
+
   }, //end Methods
 
   //----------------------------- Created function-------------------
