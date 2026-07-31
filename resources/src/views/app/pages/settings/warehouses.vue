@@ -15,9 +15,9 @@
         @on-search="onSearch"
         :search-options="{
         enabled: true,
-        placeholder: $t('Search_this_table'),  
+        placeholder: $t('Search_this_table'),
       }"
-        :select-options="{ 
+        :select-options="{
           enabled: true ,
           clearSelectionText: '',
         }"
@@ -81,7 +81,6 @@
               </validation-provider>
             </b-col>
 
-            <!-- Phone -->
             <b-col md="6">
                 <b-form-group :label="$t('Phone')">
                   <b-form-input
@@ -92,7 +91,6 @@
                 </b-form-group>
             </b-col>
 
-            <!-- Country -->
             <b-col md="6">
                 <b-form-group :label="$t('Country')">
                   <b-form-input
