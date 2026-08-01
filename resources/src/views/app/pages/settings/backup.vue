@@ -26,9 +26,7 @@
 
         <template slot="table-row" slot-scope="props">
           <span v-if="props.column.field == 'actions'">
-            <!-- <a v-b-tooltip.hover @click="DownloadBackup(props.row.date)" title="Download">
-              <i class="i-Download text-25 text-success"></i>
-            </a> -->
+
             <a title="Delete" v-b-tooltip.hover @click="DeleteBackup(props.row.date)">
               <i class="i-Close-Window text-25 text-danger"></i>
             </a>
@@ -104,7 +102,7 @@ export default {
         });
     },
 
-  
+
     //----------------------------------------  Get All backups -------------------------\\
     Get_Backups() {
       // Start the progress bar.

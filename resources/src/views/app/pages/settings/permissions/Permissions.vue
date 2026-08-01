@@ -15,7 +15,7 @@
         @on-search="onSearch"
         :search-options="{
         enabled: true,
-        placeholder: $t('Search_this_table'),  
+        placeholder: $t('Search_this_table'),
       }"
         :pagination-options="{
         enabled: true,
@@ -40,7 +40,7 @@
 
         <template slot="table-row" slot-scope="props" v-if="props.row.id !==1">
           <span v-if="props.column.field == 'actions'">
-            <router-link 
+            <router-link
               v-if="currentUserPermissions && currentUserPermissions.includes('permissions_edit')"
               title="Edit"
               v-b-tooltip.hover
@@ -58,7 +58,7 @@
             </a>
           </span>
         </template>
-        
+
       </vue-good-table>
     </b-card>
   </div>
@@ -120,12 +120,12 @@ export default {
   },
 
   methods: {
-    //---- update Params Table
+
     updateParams(newProps) {
       this.serverParams = Object.assign({}, this.serverParams, newProps);
     },
 
-    //---- Event Page Change
+
     onPageChange({ currentPage }) {
       if (this.serverParams.page !== currentPage) {
         this.updateParams({ page: currentPage });
@@ -133,7 +133,7 @@ export default {
       }
     },
 
-    //---- Event Per Page Change
+
     onPerPageChange({ currentPerPage }) {
       if (this.limit !== currentPerPage) {
         this.limit = currentPerPage;
@@ -142,7 +142,7 @@ export default {
       }
     },
 
-    //---- Event sort change
+
     onSortChange(params) {
       this.updateParams({
         sort: {
@@ -153,7 +153,7 @@ export default {
       this.Get_Roles(this.serverParams.page);
     },
 
-    //---- Event Search
+
     onSearch(value) {
       this.search = value.searchTerm;
       this.Get_Roles(this.serverParams.page);
@@ -227,7 +227,7 @@ export default {
         }
       });
     },
-   
+
   }, //end Methods
 
   created: function() {
