@@ -9,7 +9,7 @@
           <b-col lg="12" md="12" sm="12">
             <b-card>
               <b-row>
-                 <!-- date  -->
+
                 <b-col lg="4" md="4" sm="12" class="mb-3">
                   <validation-provider
                     name="date"
@@ -29,7 +29,7 @@
                     </b-form-group>
                   </validation-provider>
                 </b-col>
-                <!-- Customer -->
+
                 <b-col lg="4" md="4" sm="12" class="mb-3">
                   <validation-provider name="Customer" :rules="{ required: true}">
                     <b-form-group slot-scope="{ valid, errors }" :label="$t('Customer') + ' ' + '*'">
@@ -46,7 +46,7 @@
                   </validation-provider>
                 </b-col>
 
-                <!-- warehouse -->
+
                 <b-col lg="4" md="4" sm="12" class="mb-3">
                   <validation-provider name="warehouse" :rules="{ required: true}">
                     <b-form-group slot-scope="{ valid, errors }" :label="$t('warehouse') + ' ' + '*'">
@@ -65,14 +65,14 @@
                   </validation-provider>
                 </b-col>
 
-                <!-- Product -->
+
                 <b-col md="12" class="mb-5">
                   <h6>{{$t('ProductName')}}</h6>
-                 
+
                   <div id="autocomplete" class="autocomplete">
-                    <input 
+                    <input
                      :placeholder="$t('Scan_Search_Product_by_Code_Name')"
-                      @input='e => search_input = e.target.value' 
+                      @input='e => search_input = e.target.value'
                       @keyup="search(search_input)"
                       @focus="handleFocus"
                       @blur="handleBlur"
@@ -84,7 +84,7 @@
                 </div>
                 </b-col>
 
-                <!-- Order products  -->
+
                 <b-col md="12">
                   <h5>{{$t('order_products')}} *</h5>
                   <div class="table-responsive">
@@ -112,14 +112,14 @@
                           v-for="detail in details"
                           :class="{'row_deleted': detail.del === 1 || (detail.no_unit === 0 && detail.product_type != 'is_service')}"
                           :key="detail.detail_id"
-                           
+
                           >
                           <td>{{detail.detail_id}}</td>
                           <td>
                             <span>{{detail.code}}</span>
                             <br>
                             <span class="badge badge-success">{{detail.name}}</span>
-                           
+
                           </td>
                           <td>{{currentUser.currency}} {{formatNumber(detail.Net_price, 3)}}</td>
                           <td>
@@ -532,7 +532,7 @@ export default {
     handleBlur() {
       this.focused = false
     },
-    
+
 
     //--- Submit Validate Update Sale
     Submit_Sale() {
