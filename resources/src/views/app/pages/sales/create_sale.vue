@@ -9,7 +9,7 @@
           <b-col lg="12" md="12" sm="12">
             <b-card>
               <b-row>
-                <!-- date  -->
+
                 <b-col lg="4" md="4" sm="12" class="mb-3">
                   <validation-provider
                     name="date"
@@ -30,8 +30,6 @@
                   </validation-provider>
                 </b-col>
 
-
-                <!-- Customer -->
                 <b-col lg="4" md="4" sm="12" class="mb-3">
                   <validation-provider name="Customer" :rules="{ required: true}">
                     <b-form-group slot-scope="{ valid, errors }" :label="$t('Customer') + ' ' + '*'">
@@ -49,7 +47,7 @@
                   </validation-provider>
                 </b-col>
 
-                <!-- warehouse -->
+
                 <b-col lg="4" md="4" sm="12" class="mb-3">
                   <validation-provider name="warehouse" :rules="{ required: true}">
                     <b-form-group slot-scope="{ valid, errors }" :label="$t('warehouse') + ' ' + '*'">
@@ -68,14 +66,14 @@
                   </validation-provider>
                 </b-col>
 
-                <!-- Product -->
+
                 <b-col md="12" class="mb-5">
                   <h6>{{$t('ProductName')}}</h6>
-                 
+
                   <div id="autocomplete" class="autocomplete">
-                    <input 
+                    <input
                      :placeholder="$t('Scan_Search_Product_by_Code_Name')"
-                      @input='e => search_input = e.target.value' 
+                      @input='e => search_input = e.target.value'
                       @keyup="search(search_input)"
                       @focus="handleFocus"
                       @blur="handleBlur"
@@ -87,7 +85,7 @@
                 </div>
                 </b-col>
 
-                <!-- order products  -->
+
                 <b-col md="12" class="mb-4">
                   <h5>{{$t('order_products')}} *</h5>
                   <div class="table-responsive">
@@ -117,7 +115,7 @@
                             <span>{{detail.code}}</span>
                             <br>
                             <span class="badge badge-success">{{detail.name}}</span>
-                           
+
                           </td>
                           <td>{{currentUser.currency}} {{formatNumber(detail.Net_price, 3)}}</td>
                           <td>
@@ -427,11 +425,11 @@
                                 <td>
                                    <b-button variant="outline-primary" @click="selectCard(card)" v-if="!isSelectedCard(card) && card_id != card.card_id">
                                       <span>
-                                        <i class="i-Drag-Up"></i> 
+                                        <i class="i-Drag-Up"></i>
                                         Use This
                                       </span>
                                     </b-button>
-                                     <i v-if="isSelectedCard(card) || card_id == card.card_id" class="i-Yes" style=" font-size: 20px; "></i> 
+                                     <i v-if="isSelectedCard(card) || card_id == card.card_id" class="i-Yes" style=" font-size: 20px; "></i>
                                 </td>
                               </tr>
                             </tbody>
@@ -751,7 +749,7 @@ export default {
 
   },
 
- 
+
 
   methods: {
 
@@ -788,9 +786,9 @@ export default {
       this.card_id='';
       this.is_new_credit_card= false;
       this.submit_showing_credit_card= false;
-      
+
     },
-    
+
 
      //---------------------- Event Select Payment Method ------------------------------\\
 
@@ -824,7 +822,7 @@ export default {
                 this.submit_showing_credit_card = false;
             });
 
-         
+
         }else{
           this.hasSavedPaymentMethod = false;
           this.useSavedPaymentMethod = false;
@@ -884,7 +882,7 @@ export default {
             this.$t("Warning")
           );
           this.payment.amount = 0;
-      } 
+      }
       else if (this.payment.amount > this.GrandTotal) {
         this.makeToast(
           "warning",
@@ -900,11 +898,11 @@ export default {
     Verified_Received_Amount() {
       if (isNaN(this.payment.received_amount)) {
         this.payment.received_amount = 0;
-      } 
+      }
     },
 
 
-  
+
     //--- Submit Validate Create Sale
     Submit_Sale() {
       this.$refs.create_sale.validate().then(success => {
@@ -1022,7 +1020,7 @@ export default {
             } else {
               this.details[i].quantity =1;
             }
-                      
+
           this.details[i].Unit_price = this.detail.Unit_price;
           this.details[i].tax_percent = this.detail.tax_percent;
           this.details[i].tax_method = this.detail.tax_method;
