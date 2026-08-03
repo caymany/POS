@@ -16,7 +16,7 @@
         placeholder: $t('Search_this_table'),
         enabled: true,
       }"
-        :select-options="{ 
+        :select-options="{
           enabled: true ,
           clearSelectionText: '',
         }"
@@ -94,7 +94,7 @@
       </vue-good-table>
     </div>
 
-    <!-- Modal Edit Shipment -->
+
     <validation-observer ref="shipment_ref">
       <b-modal hide-footer size="md" id="modal_shipment" :title="$t('Edit')">
         <b-form @submit.prevent="Submit_Shipment">
@@ -402,7 +402,7 @@ export default {
         NProgress.done();
         this.$bvModal.show("modal_shipment");
       }, 800);
-     
+
     },
 
     //----------------------- Update_Shipment ---------------------------\\

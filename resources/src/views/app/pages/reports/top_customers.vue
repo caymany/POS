@@ -110,7 +110,7 @@ export default {
 
   methods: {
 
-     //----------------------------------- Export PDF ------------------------------\\
+
     export_PDF() {
       var self = this;
       let pdf = new jsPDF("p", "pt");
@@ -148,7 +148,7 @@ export default {
       }
     },
 
-    //----------------------------- Get_top_Customers-------------------\\
+
     Get_top_Customers(page) {
       // Start the progress bar.
       NProgress.start();
@@ -177,7 +177,7 @@ export default {
     }
   }, //end Methods
 
-  //----------------------------- Created function------------------- \\
+ 
 
   created: function() {
     this.Get_top_Customers(1);
