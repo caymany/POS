@@ -190,7 +190,7 @@
                   </table>
                 </div>
 
-                <!-- Order Tax  -->
+
                 <b-col lg="4" md="4" sm="12" class="mb-3">
                   <validation-provider
                     name="Order Tax"
@@ -214,7 +214,7 @@
                   </validation-provider>
                 </b-col>
 
-                <!-- Discount -->
+
                 <b-col lg="4" md="4" sm="12" class="mb-3">
                   <validation-provider
                     name="Discount"

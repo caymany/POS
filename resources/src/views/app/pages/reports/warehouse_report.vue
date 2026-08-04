@@ -19,7 +19,6 @@
     </b-row>
 
     <b-row v-if="!isLoading">
-      <!-- ICON BG -->
       <b-col lg="3" md="6" sm="12">
         <b-card class="card-icon-bg card-icon-bg-primary o-hidden mb-30 text-center">
           <i class="i-Full-Cart"></i>
@@ -507,7 +506,7 @@ export default {
           tdClass: "text-left",
           thClass: "text-left"
         },
-        
+
         {
           label: this.$t("Total"),
           field: "GrandTotal",
@@ -585,7 +584,7 @@ export default {
           tdClass: "text-left",
           thClass: "text-left"
         },
-       
+
         {
           label: this.$t("Total"),
           field: "GrandTotal",
@@ -656,7 +655,7 @@ export default {
           tdClass: "text-left",
           thClass: "text-left"
         },
-        
+
         {
           label: this.$t("Total"),
           field: "GrandTotal",
