@@ -15,9 +15,9 @@
         @on-search="onSearch"
         :search-options="{
         enabled: true,
-        placeholder: $t('Search_this_table'),  
+        placeholder: $t('Search_this_table'),
       }"
-        :select-options="{ 
+        :select-options="{
           enabled: true ,
           clearSelectionText: '',
         }"
@@ -81,7 +81,7 @@
                   </validation-provider>
                 </b-col>
 
-                  <!-- Employee -->
+
                  <b-col md="12">
                   <validation-provider name="Employee" :rules="{ required: true}">
                     <b-form-group slot-scope="{ valid, errors }" :label="$t('Employee') + ' ' + '*'">
@@ -101,11 +101,11 @@
                   </validation-provider>
                 </b-col>
 
-                  <!-- Date  -->
+
                  <b-col md="12">
                    <validation-provider name="Date" :rules="{ required: true}">
                     <b-form-group slot-scope="{ valid, errors }" :label="$t('date') + ' ' + '*'">
-                      <Datepicker  id="date" name="date" :placeholder="$t('Enter_Attendance_date')" v-model="attendance.date" 
+                      <Datepicker  id="date" name="date" :placeholder="$t('Enter_Attendance_date')" v-model="attendance.date"
                           input-class="form-control back_important" format="yyyy-MM-dd"  @closed="attendance.date=formatDate(attendance.date)">
                       </Datepicker>
                      <b-form-invalid-feedback>{{ errors[0] }}</b-form-invalid-feedback>
@@ -113,22 +113,22 @@
                   </validation-provider>
                 </b-col>
 
-                 <!-- Time_In  -->
+
                <b-col md="12">
                  <validation-provider name="Time_In" :rules="{ required: true}">
                     <b-form-group slot-scope="{ valid, errors }" :label="$t('Time_In') + ' ' + '*'">
-                    <vue-clock-picker v-model="attendance.clock_in" :placeholder="$t('Time_In')" 
+                    <vue-clock-picker v-model="attendance.clock_in" :placeholder="$t('Time_In')"
                        name="clock_in" id="clock_in"></vue-clock-picker>
                      <b-form-invalid-feedback>{{ errors[0] }}</b-form-invalid-feedback>
                     </b-form-group>
                   </validation-provider>
                 </b-col>
 
-                   <!-- Time_In  -->
+
                <b-col md="12">
                  <validation-provider name="Time_Out" :rules="{ required: true}">
                     <b-form-group slot-scope="{ valid, errors }" :label="$t('Time_Out') + ' ' + '*'">
-                    <vue-clock-picker v-model="attendance.clock_out" :placeholder="$t('Time_Out')" 
+                    <vue-clock-picker v-model="attendance.clock_out" :placeholder="$t('Time_Out')"
                        name="clock_out" id="clock_out"></vue-clock-picker>
                      <b-form-invalid-feedback>{{ errors[0] }}</b-form-invalid-feedback>
                     </b-form-group>
@@ -159,7 +159,7 @@ export default {
   metaInfo: {
     title: "Attendance"
   },
- 
+
   data() {
     return {
       isLoading: true,
@@ -180,14 +180,14 @@ export default {
       editmode: false,
       employees:[],
       companies:[],
-      attendances: [], 
+      attendances: [],
       attendance: {
           company_id: "",
           employee_id: "",
           date:"",
           clock_in:"",
           clock_out:"",
-      }, 
+      },
 
       office_shift: {
           name: "",
@@ -206,7 +206,7 @@ export default {
           saturday_out:"",
           sunday_in:"",
           sunday_out:"",
-      }, 
+      },
     };
   },
 
@@ -397,7 +397,7 @@ export default {
     },
 
       //---------------------- Get_employees_by_company ------------------------------\\
-      
+
       Get_employees_by_company(value) {
           axios
           .get("/core/get_employees_by_company?id=" + value)
@@ -412,7 +412,7 @@ export default {
                   this.companies   = response.data.companies;
               })
               .catch(error => {
-                  
+
               });
       },
 
@@ -455,7 +455,7 @@ export default {
 
     //------------------------------- Create attendance ------------------------\\
     Create_Attendance() {
-      
+
       this.SubmitProcessing = true;
       axios
         .post("attendances", {
@@ -464,7 +464,7 @@ export default {
           date: this.attendance.date,
           clock_in: this.attendance.clock_in,
           clock_out: this.attendance.clock_out,
-          
+
         })
         .then(response => {
           this.SubmitProcessing = false;
