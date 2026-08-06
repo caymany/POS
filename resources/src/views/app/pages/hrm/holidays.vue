@@ -15,9 +15,9 @@
         @on-search="onSearch"
         :search-options="{
         enabled: true,
-        placeholder: $t('Search_this_table'),  
+        placeholder: $t('Search_this_table'),
       }"
-        :select-options="{ 
+        :select-options="{
           enabled: true ,
           clearSelectionText: '',
         }"
@@ -82,7 +82,6 @@
                 </b-col>
 
 
-              <!-- title -->
               <b-col md="12">
                 <validation-provider
                   name="title"
@@ -102,7 +101,6 @@
                 </validation-provider>
               </b-col>
 
-              <!-- start date -->
               <b-col md="12">
                 <validation-provider
                   name="start_date"
@@ -110,7 +108,7 @@
                   v-slot="validationContext"
                 >
                     <b-form-group :label="$t('start_date') + ' ' + '*'">
-                        <Datepicker id="start_date" name="start_date" :placeholder="$t('Enter_Start_date')" v-model="holiday.start_date" 
+                        <Datepicker id="start_date" name="start_date" :placeholder="$t('Enter_Start_date')" v-model="holiday.start_date"
                             input-class="form-control back_important" format="yyyy-MM-dd"  @closed="holiday.start_date=formatDate(holiday.start_date)">
                         </Datepicker>
                         <b-form-invalid-feedback id="start_date-feedback">{{ validationContext.errors[0] }}</b-form-invalid-feedback>
@@ -118,7 +116,6 @@
                 </validation-provider>
               </b-col>
 
-               <!-- end date -->
               <b-col md="12">
                 <validation-provider
                   name="Finish_Date"
@@ -126,7 +123,7 @@
                   v-slot="validationContext"
                 >
                     <b-form-group :label="$t('Finish_Date') + ' ' + '*'">
-                        <Datepicker id="end_date" name="end_date" :placeholder="$t('Enter_Finish_date')" v-model="holiday.end_date" 
+                        <Datepicker id="end_date" name="end_date" :placeholder="$t('Enter_Finish_date')" v-model="holiday.end_date"
                             input-class="form-control back_important" format="yyyy-MM-dd"  @closed="holiday.end_date=formatDate(holiday.end_date)">
                         </Datepicker>
                         <b-form-invalid-feedback id="end_date-feedback">{{ validationContext.errors[0] }}</b-form-invalid-feedback>
@@ -134,7 +131,6 @@
                 </validation-provider>
               </b-col>
 
-              <!-- Please_provide_any_details -->
             <b-col md="12">
                 <b-form-group :label="$t('Please_provide_any_details')">
                   <b-form-textarea
@@ -192,14 +188,14 @@ export default {
       limit: "10",
       editmode: false,
       companies:[],
-      holidays: {}, 
+      holidays: {},
       holiday: {
           title: "",
           company_id:"",
           start_date:"",
           end_date:"",
           description:"",
-      }, 
+      },
     };
   },
 
@@ -309,7 +305,7 @@ export default {
         var d2 = d1 < 10 ? '0' + d1 : d1;
         return [d.getFullYear(), m2, d2].join('-');
     },
-  
+
 
     //------------- Submit Validation Create & Edit Holiday
     Submit_Holiday() {
@@ -364,7 +360,7 @@ export default {
                   this.companies   = response.data.companies;
               })
               .catch(error => {
-                  
+
               });
       },
 
@@ -376,7 +372,7 @@ export default {
                 this.companies   = response.data.companies;
             })
             .catch(error => {
-                
+
             });
     },
 
@@ -426,7 +422,7 @@ export default {
 
     //------------------------------- Create holiday ------------------------\\
     Create_Holiday() {
-      
+
         var self = this;
         self.SubmitProcessing = true;
         axios.post("/holiday", {
