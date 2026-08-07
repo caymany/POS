@@ -22,9 +22,9 @@
       >
       <span class="ul-btn__text ml-1">POS</span>
       </router-link>
-      <!-- Full screen toggle -->
+ 
       <i class="i-Full-Screen header-icon d-none d-sm-inline-block" @click="handleFullScreen"></i>
-      <!-- Grid menu Dropdown -->
+  
 
       <div class="dropdown">
         <b-dropdown
