@@ -15,16 +15,16 @@
     <div style="margin: auto"></div>
 
     <div class="header-part-right">
-      <router-link 
+      <router-link
         v-if="currentUserPermissions && currentUserPermissions.includes('Pos_view')"
         class="btn btn-outline-primary tn-sm btn-rounded"
         to="/app/pos"
       >
       <span class="ul-btn__text ml-1">POS</span>
       </router-link>
- 
+
       <i class="i-Full-Screen header-icon d-none d-sm-inline-block" @click="handleFullScreen"></i>
-  
+
 
       <div class="dropdown">
         <b-dropdown
@@ -76,6 +76,7 @@
                 <i title="sa" class="flag-icon flag-icon-squared flag-icon-th"></i>
                 <span class="title-lang">Thaï</span>
               </a>
+              <!--- COMMENT HERE -->
 
               <a @click="SetLocal('hn')">
                 <i title="sa" class="flag-icon flag-icon-squared flag-icon-in"></i>
@@ -118,7 +119,7 @@
                 <i title="sa" class="flag-icon flag-icon-squared flag-icon-kr"></i>
                 <span class="title-lang">Korean</span>
               </a>
-             
+
               <a @click="SetLocal('ba')">
                 <i title="sa" class="flag-icon flag-icon-squared flag-icon-bd"></i>
                 <span class="title-lang">Bangla</span>
@@ -138,10 +139,10 @@
           </vue-perfect-scrollbar>
         </b-dropdown>
       </div>
-      <!-- Notificaiton -->
+
       <div class="dropdown">
         <b-dropdown
-          id="dropdown-1" 
+          id="dropdown-1"
           text="Dropdown Button"
           class="m-md-2 badge-top-container d-none  d-sm-inline-block"
           toggle-class="text-decoration-none"
@@ -172,13 +173,11 @@
                </router-link>
               </div>
             </div>
-           
+
           </vue-perfect-scrollbar>
         </b-dropdown>
       </div>
-      <!-- Notificaiton End -->
 
-      <!-- User avatar dropdown -->
       <div class="dropdown">
         <b-dropdown
           id="dropdown-1"
@@ -234,7 +233,7 @@ export default {
   },
 
   data() {
-  
+
     return {
       langs: [
         "en",
@@ -256,19 +255,19 @@ export default {
         "br",
         "da",
       ],
-      
+
       isDisplay: true,
       isStyle: true,
       isSearchOpen: false,
       isMouseOnMegaMenu: true,
       isMegaMenuOpen: false,
       is_Load:false,
-     
+
     };
   },
- 
+
    computed: {
-     
+
      ...mapGetters([
        "currentUser",
       "getSideBarToggleProperties",
@@ -280,7 +279,7 @@ export default {
   },
 
   methods: {
-    
+
     ...mapActions([
       "changeSecondarySidebarProperties",
       "changeSidebarProperties",
