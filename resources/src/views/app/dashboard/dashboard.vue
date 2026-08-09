@@ -105,7 +105,7 @@
       </b-row>
 
       <b-row>
-        <!-- Stock Alert -->
+
         <div class="col-md-8">
           <div class="card mb-30">
             <div class="card-body p-2">
@@ -170,7 +170,7 @@
         </b-col>
       </b-row>
 
-      <!-- Last Sales -->
+
       <b-row>
         <div class="col-md-12">
           <div class="card mb-30">
@@ -221,8 +221,8 @@
     </div>
 
   </div>
-  
-  <!-- ============ Body content End ============= -->
+
+
 </template>
 <script>
 import { mapGetters } from "vuex";
@@ -241,7 +241,7 @@ export default {
     "v-chart": ECharts
   },
   metaInfo: {
-    // if no subcomponents specify a metaInfo.title, this title will be used
+
     title: "Dashboard"
   },
   data() {
