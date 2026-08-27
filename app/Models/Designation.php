@@ -31,4 +31,6 @@ class Designation extends Model
         return $this->hasOne('App\Models\Department', 'id', 'department_id');
     }
     // Additional code here
+
+    //Second space code
 }
