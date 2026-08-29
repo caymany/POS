@@ -44,4 +44,6 @@ class Leave extends Model
     {
         return $this->belongsTo('App\Models\LeaveType');
     }
+
+    //Disable User functions
 }
