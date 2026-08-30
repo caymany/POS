@@ -13,12 +13,7 @@ class Permission extends Model
     {
         return $this->belongsToMany(Role::class);
     }
-    /**
-     * Determine if the permission belongs to the role.
-     *
-     * @param  mixed $role
-     * @return boolean
-     */
+
     public function inRole($role)
     {
         if (is_string($role)) {
