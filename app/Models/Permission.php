@@ -23,3 +23,5 @@ class Permission extends Model
     }
 }
 ///return $this->roles()->where('name', $role)->exists();
+///coding is fun
+
