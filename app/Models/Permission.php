@@ -22,7 +22,4 @@ class Permission extends Model
         return !!$role->intersect($this->roles)->count();
     }
 }
-///return $this->roles()->where('name', $role)->exists();
-///coding is fun
-//Today's Commit Message
 
