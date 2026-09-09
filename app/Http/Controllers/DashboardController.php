@@ -78,7 +78,7 @@ class DashboardController extends Controller
 
     }
 
-    //----------------- Sales Chart js -----------------------\\
+
 
     public function SalesChart($warehouse_id, $array_warehouses_id)
     {
@@ -132,7 +132,6 @@ class DashboardController extends Controller
 
     }
 
-    //----------------- Purchases Chart -----------------------\\
 
     public function PurchasesChart($warehouse_id, $array_warehouses_id)
     {
