@@ -44,7 +44,6 @@ use ArPHP\I18N\Arabic;
 class PurchasesController extends BaseController
 {
 
-    //------------- Show ALL Purchases ----------\\
 
     public function index(request $request)
     {
@@ -79,7 +78,6 @@ class PurchasesController extends BaseController
         $data = array();
         $total = 0;
 
-        // Check If User Has Permission View  All Records
         $Purchases = Purchase::with('facture', 'provider', 'warehouse')
             ->where('deleted_at', '=', null)
             ->where(function ($query) use ($view_records) {
@@ -88,7 +86,7 @@ class PurchasesController extends BaseController
                 }
             });
 
-        //Multiple Filter
+
         $Filtred = $helpers->filter($Purchases, $columns, $param, $request)
         // Search With Multiple Param
             ->where(function ($query) use ($request) {
@@ -152,7 +150,7 @@ class PurchasesController extends BaseController
 
         $suppliers = provider::where('deleted_at', '=', null)->get(['id', 'name']);
 
-         //get warehouses assigned to user
+
          $user_auth = auth()->user();
          if($user_auth->is_all_warehouses){
              $warehouses = Warehouse::where('deleted_at', '=', null)->get(['id', 'name']);
