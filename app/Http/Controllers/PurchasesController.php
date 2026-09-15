@@ -167,7 +167,7 @@ class PurchasesController extends BaseController
         ]);
     }
 
-    //------ Store new Purchase -------------\\
+  
 
     public function store(Request $request)
     {
@@ -291,7 +291,7 @@ class PurchasesController extends BaseController
                     $new_products_id[] = $new_detail['id'];
                 }
 
-                // Init Data with old Parametre
+
                 $old_products_id = [];
                 foreach ($old_purchase_details as $key => $value) {
                     $old_products_id[] = $value->id;
