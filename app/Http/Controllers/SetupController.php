@@ -15,20 +15,19 @@ class SetupController extends Controller
     {
         if (count($data) > 0) {
 
-            // Read .env-file
+
             $env = file_get_contents(base_path() . '/.env');
 
-            // Split string on every " " and write into array
+
             $env = preg_split('/(\r\n|\n|\r)/', $env);
 
-            // Loop through given data
+
             foreach ((array) $data as $key => $value) {
 
                 // Loop through .env-data
                 foreach ($env as $env_key => $env_value) {
 
-                    // Turn the value into an array and stop after the first split
-                    // So it's not possible to split e.g. the App-Key by accident
+
                     $entry = explode("=", $env_value, 2);
 
                     // Check, if new key fits the actual .env-key
@@ -142,7 +141,7 @@ class SetupController extends Controller
 
     public function lastStep(Request $request)
     {
-        ini_set('max_execution_time', 600); //600 seconds = 10 minutes 
+        ini_set('max_execution_time', 600); //600 seconds = 10 minutes
 
         try {
             $this->changeEnv([
@@ -170,14 +169,14 @@ class SetupController extends Controller
             Artisan::call('passport:install --force');
             Storage::disk('public')->put('installed', 'Contents');
 
-            
+
         } catch (\Exception $e) {
-            
+
             return $e->getMessage();
-            
+
             return 'Something went wrong';
         }
-        
+
         return view('setup.finishedSetup');
     }
 
@@ -204,7 +203,7 @@ class SetupController extends Controller
         if (strlen($request->app_key) > 0) {
             $request->session()->put('env.APP_KEY', $request->app_key);
         }
-        
+
 
         return $this->viewStep2();
     }
