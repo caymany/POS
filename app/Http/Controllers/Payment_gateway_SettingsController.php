@@ -54,7 +54,7 @@ class Payment_gateway_SettingsController extends Controller
       }
 
 
-    //-------------- Set Environment Value ---------------\\
+
 
     public function setEnvironmentValue(array $values)
     {
@@ -73,7 +73,7 @@ class Payment_gateway_SettingsController extends Controller
                     $str .= "$envKey=$envValue";
                     $str .= "\r\n";
                 } else {
-                    // variable exist
+
                     $str = str_replace($oldLine, "$envKey=$envValue", $str);
                 }
             }
